@@ -1,0 +1,52 @@
+{
+  "blogs": [
+    {
+      "id": 1,
+      "date": "2023-01-01",
+      "title": "Best clubs in the world",
+      "image": "https://media.npr.org/assets/img/2020/06/10/gettyimages-200199027-001-b5fb3d8d8469ab744d9e97706fa67bc5c0e4fa40.jpg",
+      "description": "Hi Ibiza has been voted The World's No. 1 Club, as the results of DJ Mag's Top 100 Clubs 2023 poll are announced. Hi Ibiza, last year's No. 3, has moved up two places,",
+      "category": "Sports"
+    },
+    {
+      "id": 2,
+      "date": "2023-01-01",
+      "title": "Good lifestyle Practices",
+      "image": "https://thumbs.dreamstime.com/b/healthy-lifestyle-fitness-sports-woman-running-sunrise-road-39709089.jpg",
+      "description": "Measure and Watch Your Weight. ...Limit Unhealthy Foods and Eat Healthy Meals. ...Take Multivitamin Supplements. ...Drink Water and Stay Hydrated, and Limit Sugared Beverages. ...",
+      "category": "Lifestyle"
+    },
+    {
+      "id": 3,
+      "date": "2023-01-02",
+      "title": "How to be successfull Footballer",
+      "image": "https://img.freepik.com/free-photo/sports-tools_53876-138077.jpg",
+      "description": "Burn with desire, There are countless people who go to the pitch every day to play football. Some do it for fun, others do it part-time, and others full time. If you've decided to take football as your career, you should have a burning desire to succeed as a professional player",
+      "category": "Sports"
+    },
+    {
+      "id": 4,
+      "date": "2023-01-06",
+      "title": "How to get started with Hockey",
+      "image": "https://content.api.news/v3/images/bin/c8d0c20f382a6bf190a82bb55564b884",
+      "description": "Find out about the leagues in your town. Contact the leagues and ask if they have skills clinics, try hockey days, etc. Talk to parents of kids already in a program, or women already playing. Ask about their experiences, ",
+      "category": "Sports"
+    },
+    {
+      "id": 5,
+      "date": "2023-01-07",
+      "title": "Healthy Living",
+      "image": "https://www.shutterstock.com/image-photo/homemade-granola-nuts-raisins-kiwi-260nw-636196073.jpg",
+      "description": "The longstanding definition of health from the World Health Organization (WHO) formulated in 1948 is 'a state of complete physical, mental and social well-being and not merely the absence of disease or infirmit",
+      "category": "Lifestyle"
+    },
+    {
+      "id": 6,
+      "date": "2023-01-07",
+      "title": "Reasons to go to gym",
+      "image": "https://www.shutterstock.com/image-photo/homemade-granola-nuts-raisins-kiwi-260nw-636196073.jpg",
+      "description": "Whatever your age, there's strong scientific evidence that being physically active can help you lead a healthier and happier life",
+      "category": "Lifestyle"
+    }
+  ]
+}
