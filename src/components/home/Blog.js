@@ -1,17 +1,34 @@
 import React, {useEffect, useState} from 'react'
 import { Link } from 'react-router-dom'
+
+
 function Blog() 
 {
   const [blog, setBlog] = useState([]);
 
+
   useEffect(()=>{
-    fetch("http://localhost:5000/blogs")
+    // fetch("http://localhost:5000/blogs")
+    // .then(res=>res.json())
+    // .then(res=>{
+    //   // console.log(res)
+    //   setBlog(res)
+    // })
+    // , "X-BIN-META": false
+    fetch("https://api.jsonbin.io/v3/b/644a76838e4aa6225e920035",{
+      method:"GET",
+      headers:{"X-ACCESS-KEY":"$2b$10$GVdPvmMsow2V5ABijw6WNOGSztKX25b84f.XaLTCrx2kH3DSGTVti"}
+    })
     .then(res=>res.json())
     .then(res=>{
-      // console.log(res)
-      setBlog(res)
+      console.log(res.record.blogs)
+      setBlog(res.record.blogs)
     })
+
   }, [])
+
+
+
   return (
     <div className=' container my-5'>
       <div className='text-center'>

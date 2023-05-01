@@ -12,17 +12,34 @@ export default function AddBlog()
     const [category, setCategory]=useState()
     const [date, setDate]=useState()
 
+
+
+    let req = new XMLHttpRequest();
+
+    req.onreadystatechange = () => {
+      if (req.readyState == XMLHttpRequest.DONE) {
+        console.log(req.responseText);
+      }
+    };
+      
+    // req.open("POST", "https://api.jsonbin.io/v3/b", true);
+    // req.setRequestHeader("Content-Type", "application/json");
+    // req.setRequestHeader("X-Master-Key", "<YOUR_API_KEY>");
+    // req.send('{"sample": "Hello World"}');    
+
+
     const handleSubmit = (e)=>{
         e.preventDefault()
 
         const data = {title:title, description:description, image:image,category:category,date:date}
-        fetch(`http://localhost:5000/blogs/`,{
+        fetch(`https://api.jsonbin.io/v3/b/644a76838e4aa6225e920035`,{
           method:"POST",
-          headers: {"Content-Type":"application/json"},
+          headers: {"Content-Type":"application/json", "X-ACCESS-KEY":"$2b$10$GVdPvmMsow2V5ABijw6WNOGSztKX25b84f.XaLTCrx2kH3DSGTVti", "X-BIN-META": false},
           body: JSON.stringify(data)
         })
         .then(res=>res.json())
-        .then(()=>{
+        .then((res)=>{
+          console.log("Errors ", res)
           console.log("Saved successfully")
           nav("/")
           Swal.fire({
@@ -64,7 +81,7 @@ export default function AddBlog()
                     <input type="text" onChange={(e)=> setDescription(e.target.value)} className="form-control" />
                 </div>
 
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" className="btn btn-primary">Submit</button>
                 </form>
 
 
