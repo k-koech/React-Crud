@@ -8,21 +8,14 @@ function Blog()
 
 
   useEffect(()=>{
-    // fetch("http://localhost:5000/blogs")
-    // .then(res=>res.json())
-    // .then(res=>{
-    //   // console.log(res)
-    //   setBlog(res)
-    // })
-    // , "X-BIN-META": false
-    fetch("https://api.jsonbin.io/v3/b/644a76838e4aa6225e920035",{
-      method:"GET",
-      headers:{"X-ACCESS-KEY":"$2b$10$GVdPvmMsow2V5ABijw6WNOGSztKX25b84f.XaLTCrx2kH3DSGTVti"}
+
+    fetch("https://testing-rb3o.onrender.com/blogs",{
+      method:"GET"
     })
     .then(res=>res.json())
     .then(res=>{
-      console.log(res.record.blogs)
-      setBlog(res.record.blogs)
+      console.log(res)
+      setBlog(res)
     })
 
   }, [])

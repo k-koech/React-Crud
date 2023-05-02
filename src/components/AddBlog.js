@@ -25,16 +25,17 @@ export default function AddBlog()
     // req.open("POST", "https://api.jsonbin.io/v3/b", true);
     // req.setRequestHeader("Content-Type", "application/json");
     // req.setRequestHeader("X-Master-Key", "<YOUR_API_KEY>");
-    // req.send('{"sample": "Hello World"}');    
+    // req.send('{"sample": "Hello World"}');    https://api.jsonbin.io/v3/b/644a76838e4aa6225e920035
 
 
     const handleSubmit = (e)=>{
         e.preventDefault()
 
         const data = {title:title, description:description, image:image,category:category,date:date}
-        fetch(`https://api.jsonbin.io/v3/b/644a76838e4aa6225e920035`,{
+        fetch(`https://testing-rb3o.onrender.com/blogs`,{
           method:"POST",
-          headers: {"Content-Type":"application/json", "X-ACCESS-KEY":"$2b$10$GVdPvmMsow2V5ABijw6WNOGSztKX25b84f.XaLTCrx2kH3DSGTVti", "X-BIN-META": false},
+          headers: {"Content-Type":"application/json"},
+          // "X-ACCESS-KEY":"$2b$10$GVdPvmMsow2V5ABijw6WNOGSztKX25b84f.XaLTCrx2kH3DSGTVti", "X-BIN-META": false},
           body: JSON.stringify(data)
         })
         .then(res=>res.json())
