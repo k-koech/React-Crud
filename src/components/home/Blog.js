@@ -1,24 +1,12 @@
-import React, {useEffect, useState} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import { Link } from 'react-router-dom'
+import { BlogContext } from '../../context/BlogContext'
 
 
 function Blog() 
 {
-  const [blog, setBlog] = useState([]);
+  const {blog} = useContext(BlogContext)
 
-
-  useEffect(()=>{
-
-    fetch("https://testing-rb3o.onrender.com/blogs",{
-      method:"GET"
-    })
-    .then(res=>res.json())
-    .then(res=>{
-      console.log(res)
-      setBlog(res)
-    })
-
-  }, [])
 
 
 

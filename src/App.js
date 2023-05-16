@@ -6,20 +6,23 @@ import Contact from "./components/Contact";
 import "./App.css"
 import SingleBlog from "./components/SingleBlog";
 import AddBlog from "./components/AddBlog";
+import { BlogProvider } from "./context/BlogContext";
 
 function App() {
 
   return (
   <BrowserRouter>
-    <Routes>
-       <Route path="/" element={<Layout/>}>
-         <Route index element={<Home/>} />
-         <Route path="about" element={<About/>} />
-         <Route path="addblog" element={<AddBlog/>} />
-         <Route path="contact" element={<Contact />} />
-         <Route path="blog/:id" element={<SingleBlog />} />
-       </Route>
-    </Routes>
+    <BlogProvider>
+      <Routes>
+        <Route path="/" element={<Layout/>}>
+          <Route index element={<Home/>} />
+          <Route path="about" element={<About/>} />
+          <Route path="addblog" element={<AddBlog/>} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="blog/:id" element={<SingleBlog />} />
+        </Route>
+      </Routes>
+      </BlogProvider>
   </BrowserRouter>
   );
 }

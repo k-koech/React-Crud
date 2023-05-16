@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
+import { BlogContext } from '../context/BlogContext'
 
 export default function AddBlog() 
 {
-    const nav = useNavigate()
 
     const [title, setTitle]=useState()
     const [description, setDescription]=useState()
@@ -12,45 +12,14 @@ export default function AddBlog()
     const [category, setCategory]=useState()
     const [date, setDate]=useState()
 
-
-
-    let req = new XMLHttpRequest();
-
-    req.onreadystatechange = () => {
-      if (req.readyState == XMLHttpRequest.DONE) {
-        console.log(req.responseText);
-      }
-    };
-      
-    // req.open("POST", "https://api.jsonbin.io/v3/b", true);
-    // req.setRequestHeader("Content-Type", "application/json");
-    // req.setRequestHeader("X-Master-Key", "<YOUR_API_KEY>");
-    // req.send('{"sample": "Hello World"}');    https://api.jsonbin.io/v3/b/644a76838e4aa6225e920035
+  const {AddBlog, blog} = useContext(BlogContext)
 
 
     const handleSubmit = (e)=>{
         e.preventDefault()
 
         const data = {title:title, description:description, image:image,category:category,date:date}
-        fetch(`https://testing-rb3o.onrender.com/blogs`,{
-          method:"POST",
-          headers: {"Content-Type":"application/json"},
-          // "X-ACCESS-KEY":"$2b$10$GVdPvmMsow2V5ABijw6WNOGSztKX25b84f.XaLTCrx2kH3DSGTVti", "X-BIN-META": false},
-          body: JSON.stringify(data)
-        })
-        .then(res=>res.json())
-        .then((res)=>{
-          console.log("Errors ", res)
-          console.log("Saved successfully")
-          nav("/")
-          Swal.fire({
-            position: 'top-end',
-            icon: 'success',
-            title: `Saved Successfully`,
-            showConfirmButton: false,
-            timer: 3000
-          })
-        })
+        AddBlog(data)
       }
 
   return (

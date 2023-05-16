@@ -1,38 +1,25 @@
-import React, {useEffect, useState} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
+import { BlogContext } from '../context/BlogContext'
 
 export default function SingleBlog() 
 {
-  const [singleBlog, setSingleBlog] =useState()
+ 
 
   const nav = useNavigate()
     const {id} = useParams()
+
+    const {GetSingleBlog,singleBlog, DeleteBlog} = useContext(BlogContext)
+
     useEffect(()=>{
-      fetch(`https://testing-rb3o.onrender.com/blogs/${id}`)
-      .then(res=>res.json())
-      .then(res=>{
-        setSingleBlog(res)
-        console.log(res)
-      })
+      GetSingleBlog(id)
     }, [])
 
+    console.log("In SingleBlog ",singleBlog)
 
     const handleDelete = ()=>{
-      fetch(`https://testing-rb3o.onrender.com/blogs/${id}`,{
-        method:"DELETE"
-      })
-      .then(()=>{
-        console.log("deleted successfully")
-        nav("/")
-        Swal.fire({
-          position: 'top-end',
-          icon: 'success',
-          title: `Blog ${id} deleted successfully`,
-          showConfirmButton: false,
-          timer: 1500
-        })
-      })
+       DeleteBlog(id)
     }
 
   return (
